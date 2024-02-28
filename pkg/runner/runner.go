@@ -473,9 +473,9 @@ func getRow(headers []string, cve types.CVEData) []interface{} {
 			row[i] = getCellValueByLimit(strings.ToUpper(strconv.FormatBool(cve.IsKev)))
 		case "template":
 			if cve.IsTemplate {
-				row[i] = "✅"
+				row[i] = "\033[32m\u2713\033[0m" // Green check mark ✓
 			} else {
-				row[i] = "❌"
+				row[i] = "\033[31m\u2717\033[0m" // Red cross mark ✗
 			}
 		case "poc":
 			row[i] = getCellValueByLimit(strings.ToUpper(strconv.FormatBool(cve.IsPoc)))
